@@ -1,0 +1,59 @@
+<div id="bodyContent">
+  <div class="row">
+
+    <img class="santander rounded float-left" src="../../../assets/logo.svg" />
+
+
+  </div>
+  <div class="form container-fluid container">
+
+    <mat-card class="my-card">
+      <mat-card-content>
+        <form class="my-form">
+          <div class="alert alert-danger" *ngIf="invalidLogin">
+            {{errorMessage}}
+          </div>
+
+          <div class="example-container">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <!-- <mat-label>Email</mat-label> -->
+              <input (change)="disableButton()" placeholder="Email Address" matInput [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+          </div>
+
+          <div class="example-container">
+            <mat-form-field class="example-full-width" appearance="fill">
+
+              <input placeholder="Password" (change)="disableButton()" type="password" matInput='password'
+                [(ngModel)]="password" name="Password" required>
+
+            </mat-form-field>
+          </div>
+        </form>
+      </mat-card-content>
+      <div style="width: 50%;">
+        <re-captcha
+        [(ngModel)]="formModel.captcha"
+        name="captcha"
+        required
+        siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"
+        #captchaControl="ngModel"
+      ></re-captcha>
+      </div>
+      <div [hidden]="!captchaControl.valid" class="success">Captcha is valid</div>
+      <br>
+      <button [disabled]="disabled || !captchaControl.valid" class='mat-raised-button login' (click)="handleLogin()" color="primary">Log
+        In</button>
+
+
+      <div class="smallFont">
+        <span> Click here if you forgot your password </span>
+        <a routerLink="/forgot">forgot password</a>
+        <a routerLink="/register">register here</a>
+      </div>
+
+    </mat-card>
+  </div>
+</div>

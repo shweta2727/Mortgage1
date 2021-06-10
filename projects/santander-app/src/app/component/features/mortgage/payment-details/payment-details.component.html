@@ -1,0 +1,128 @@
+<div class="container container-fluid">
+
+  <div class="grid-row no-gutter">
+      <div class="grid-col col-12-of-12 ">
+        <div class="header withSubHeadline">
+          <br>
+          <br>
+          <h3 data-qa="loan details header">Payment details</h3>
+          <p>We’d like to confirm some payment details for your mortgage, and also understand if you're expecting any change to your circumstances.</p>
+        </div>
+          <div class="form field-bottom-fourfold">
+            <h6 class="">Your current circumstances</h6>
+            <hr>
+            <div class="formbody">
+              <div class="informationMessage no-border field-bottom-double">
+                <p>
+                  We appreciate things may change in the future. Over the life of the mortgage there may be events that
+                  could increase or decrease your income and/or outgoings, for example; changing jobs, redundancy,
+                  starting a family, retirement, school fees or property repairs.
+                </p>
+                <p>
+                  It’s important that you consider whether you can still afford your repayments if any significant
+                  changes occur. If any changes are known then tell us below and provide details of how you'll still be
+                  able to afford your mortgage.
+                </p>
+              </div>
+              </div>
+              </div>
+              <div class="field field-top-double field-bottom-double">
+                  <fieldset>
+                    <h6>
+                      <span class="required">Are you currently aware of any changes to your circumstances in the next 2 years that may affect your ability to pay this mortgage?</span>
+                    </h6>
+                    <br>
+                    <span class="chooseOneGroup grid-row inputgroup">
+                      <span class="grid-mobile-col mobile-col-4-of-8">
+                        <input type="radio" id="awareOfCircumstancesChangesYes"  (click)="radiobutton($event.target,'circumstances')"  value="yes" class="chooseOne correct" data-qa="aware of circumstances changes" required="" name="awareOfCircumstancesChanges">
+                        <label for="awareOfCircumstancesChangesYes" data-qa="aware of circumstances changes yes">Yes</label>
+                      </span>
+                      <span class="grid-mobile-col mobile-col-4-of-8">
+                        <input type="radio" id="awareOfCircumstancesChangesNo"  (click)="radiobutton($event.target,'circumstances')" class="chooseOne correct" value="no" data-qa="aware of circumstances changes" required="" name="awareOfCircumstancesChanges">
+                        <label for="awareOfCircumstancesChangesNo" data-qa="aware of circumstances changes no">No</label>
+                      </span>
+                    </span>
+                  </fieldset>
+                </div>
+                <br>
+                <div>
+                    <h6>Your Direct Debit details</h6>
+                    <hr>
+                    <p class="field-top-double field-bottom-double">Which account do you want your monthly payments to be made from?</p>
+<div class="col=md-6">
+                    <div class="example-container">
+                      <mat-form-field  appearance="standard">
+
+                          <input type="number" [(ngModel)]="paymentDetails.sortCode"
+                        placeholder="Sort code" name="Sort code"  matInput required>
+                          <mat-error></mat-error>
+                      </mat-form-field>
+                  </div>
+                  <div class="example-container">
+                      <mat-form-field  appearance="standard">
+
+                          <input type="number" [(ngModel)]="paymentDetails.accountNumber"
+                          placeholder="Account number"  name="Account number" matInput required>
+                          <mat-error></mat-error>
+                      </mat-form-field>
+                  </div>
+                  <div class="example-container">
+                      <mat-form-field  appearance="standard">
+
+                          <input [(ngModel)]="paymentDetails.accountHolderName"
+                          placeholder="Account holder name" name="Account holder name" matInput required>
+                          <mat-error></mat-error>
+                      </mat-form-field>
+                  </div>
+                </div>
+                </div>
+                <br>
+                <br>
+                <div class="field field-top-double field-bottom-double">
+                  <fieldset>
+                    <h6>
+                      On which day of the month do you want to make your payments?
+                    </h6>
+                    <span class="chooseOneGroup grid-row inputgroup" >
+                      <span class="grid-mobile-col mobile-col-full">
+                        <input  (click)="radiobutton($event.target,'payment')" type="radio" id="isPaymentFirstDayOfMonthYes" value="PaymentFirstDayOfMonthYes" class="chooseOne" data-qa="is payment first day of the month" required="" name="isPaymentFirstDayOfMonth">
+                        <label for="isPaymentFirstDayOfMonthYes" data-qa="is payment first day of the month yes">On first day of each of month</label>
+                      </span>
+                      <span class="grid-mobile-col mobile-col-full">
+                        <input  (click)="radiobutton($event.target,'payment')" type="radio" id="isPaymentFirstDayOfMonthNo" class="chooseOne" value="PaymentFirstDayOfMonthNo" data-qa="is payment first day of the month" required="" name="isPaymentFirstDayOfMonth">
+                        <label for="isPaymentFirstDayOfMonthNo" data-qa="is payment first day of the month no">On a specific day each month</label>
+                      </span>
+                    </span>
+                  </fieldset>
+
+
+                </div>
+                <div class="message">
+                  <h6>Direct Debit guarantee</h6>
+                  <p>This guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits. </p>
+                  <ul class="simple">
+                    <li>If there are any changes to the amount, date, or frequency of your Direct Debit Santander will notify you five working days in advance of your account being debited or as otherwise agreed. </li>
+                    <li>If you request Santander to collect a payment, confirmation of the amount and date will be given to you at the time of the request.</li>
+                    <li>If an error is made in the payment of your Direct Debit, either by us, Santander UK plc, or by your bank or building society, you are entitled to a full and immediate refund from your bank or building society.</li>
+                    <li>If you receive a refund you are not entitled to, you must pay it back when Santander UK plc asks you to. </li>
+                    <li>You can cancel a Direct Debit at any time by simply contacting your bank or building society. Written confirmation may be required.</li>
+                  </ul>
+                </div>
+                <button type="submit" class='mat-raised-button max-90' style="margin-top: 26px;
+                  margin-bottom: 20px;" (click)="saveAndNavigate()" color="primary">save & continue</button>
+                <div class="importantMessageform">
+                  <div class="formbody">
+                    <h6>Important information</h6>
+                    <div class="message">
+                      <p>
+                        <strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE </strong>
+                      </p>
+                      <p>All applications are subject to status and our lending criteria. This means that the amount we will lend you will depend on your individual circumstances, the type of property and the amount you borrow. For example, we may require a higher deposit
+                        if you are buying a flat or a new build property.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+</div>

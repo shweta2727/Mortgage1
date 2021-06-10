@@ -1,0 +1,218 @@
+<div class="container container-fluid" [formGroup]="propertyDetailsForm">
+
+    <div class="grid-row no-gutter">
+        <div class="grid-col col-12-of-12 ">
+          <div class="header withSubHeadline">
+            <br>
+            <br>
+            <h3 data-qa="loan details header">Property details</h3>
+            <p>We need some more information about the property so that we can assess whether it’s suitable for us to lend against.</p>
+          </div>
+
+                    <div class="form field-bottom-fourfold" data-qa="property address section">
+                      <h5 class="formHeader">Your property address</h5>
+                      <p>Please tell us the address of the property you want to mortgage</p>
+                      <div class="formbody grid-row">
+                        <div class="grid-col col-9-of-9 mobile-col-full tablet-col-full">
+
+                          <div class="fexample-container" >
+                            <mat-form-field appearance="standard">
+
+                                <input
+                                [(ngModel)]="propertyDetails.postCode"
+                                (ngModelChange)="onModelChangedPostCode($event)"
+                                 placeholder="Post code" formControlName="PostCode"  matInput required>
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field appearance="standard">
+
+                              <input (ngModelChange)="onModelChangedAddress($event)"
+                              [(ngModel)]="propertyDetails.propertyAddress"
+                               placeholder="Address" formControlName="Address"  matInput required>
+                              <mat-error></mat-error>
+                          </mat-form-field>
+                        </div>
+
+
+                      </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form field-bottom-fourfold">
+                      <h5 class="formHeader">Your property details</h5>
+                      <div class="formbody">
+                        <div class="mobile-col-full tablet-col-full">
+                          <div class="field field-top-double">
+
+                            <mat-form-field appearance="standard">
+                              <select  [(ngModel)]="propertyDetails.propertyType" matNativeControl required id="propertyType" formControlName="PropertyType" (change)="PropertyType($event)">
+                                <option selected="selected" value="">Property type</option>
+                                <option value="01">Detached/chalet bungalow</option>
+                                <option value="02">Detached house</option>
+                                <option value="03">Semi-detached/link-detached house</option>
+                                <option value="04">Semi-detached bungalow</option>
+                                <option value="05">Terraced/end-terraced/bungalow</option>
+                                <option value="06">Converted flat/maisonette</option>
+                                <option value="07">Purpose-built flat/maisonette</option>
+                              </select>
+                            </mat-form-field>
+
+                          </div>
+                          <br>
+
+                          <div class="field field-top-double field-bottom-double">
+                            <mat-form-field appearance="standard">
+
+                              <input
+                              [(ngModel)]="propertyDetails.numberOfBedrooms"
+                              (ngModelChange)="onModelChangedPostCode($event)"
+                               placeholder="Number of Bedrooms" formControlName="NoOfBedRooms" matInput required>
+                              <mat-error></mat-error>
+                          </mat-form-field>
+                          </div>
+<br>
+<br>
+                          <div class="field field-top-double field-bottom-double">
+                            <fieldset>
+                                <span class="required">Approximately when was the property built?</span>
+                              <span class="chooseOneGroup grid-row inputgroup">
+                                <span class="grid-mobile-col mobile-col-full">
+                                  <input type="radio" (click)="changeProperty($event)" id="propertyBuilt1" value="Before 1914" class="chooseOne" data-qa="is payment first day of the month" required="" name="built">
+                                  <label for="propertyBuilt1" data-qa="is payment first day of the month yes">Before 1914</label>
+                                </span>
+                                <span class="grid-mobile-col mobile-col-full">
+                                  <input type="radio" (click)="changeProperty($event)" id="propertyBuilt2" class="chooseOne" value="1914 to 1944" data-qa="is payment first day of the month" required="" name="built">
+                                  <label for="propertyBuilt2" data-qa="is payment first day of the month no">1914 to 1944</label>
+                                </span>
+                                <span class="grid-mobile-col mobile-col-full">
+                                    <input type="radio" (click)="changeProperty($event)" id="propertyBuilt3" value="1945 to 1980" class="chooseOne" data-qa="is payment first day of the month" required="" name="built">
+                                    <label for="propertyBuilt3" data-qa="is payment first day of the month yes">1945 to 1980</label>
+                                  </span>
+                                  <span class="grid-mobile-col mobile-col-full">
+                                    <input type="radio" (click)="changeProperty($event)" id="propertyBuilt4" class="chooseOne" value="After 1980" data-qa="is payment first day of the month" required="" name="built">
+                                    <label for="propertyBuilt4" data-qa="is payment first day of the month no">After 1980</label>
+                                  </span>
+                              </span>
+                            </fieldset>
+                          </div>
+
+     <div>
+                          <mat-form-field appearance="standard">
+                            <select  [(ngModel)]="propertyDetails.propertyAge" matNativeControl placeholder="How old is the property?" required id="propertyType" formControlName="propertyAge" (change)="propertyOld($event)">
+                              <option selected="selected" value="">How old is the property?</option>
+                              <option value="1">Currently under construction</option>
+                              <option value="2">Built within the last 12 months</option>
+                              <option value="3">Between 13-24 months old</option>
+                              <option value="4">Between 2 - 10 years</option>
+                              <option value="5">More than 10 years</option>
+                            </select>
+                          </mat-form-field>
+                        </div>
+<br>
+<div class="field field-top-double field-bottom-double">
+  <fieldset>
+      <span class="required">Is the property covered by a structural warranty (e.g. NHBC cover)?</span>
+    <span class="chooseOneGroup grid-row inputgroup">
+      <span class="grid-mobile-col mobile-col-full">
+        <input type="radio"(click)="changePropertyCovered($event)" id="CoveredYes" value="yes" class="chooseOne" required="" name="propertyCovered">
+        <label for="CoveredYes" data-qa="is payment first day of the month yes">Yes</label>
+      </span>
+      <span class="grid-mobile-col mobile-col-full">
+        <input type="radio" (click)="changePropertyCovered($event)" id="CoveredNo" class="chooseOne" value="no" required="" name="propertyCovered">
+        <label for="CoveredNo" data-qa="is payment first day of the month no">No</label>
+      </span>
+    </span>
+  </fieldset>
+</div>
+                          <br>
+                          <div class="field field-top-double field-bottom-double">
+                            <fieldset>
+                                <span class="required">Tenure type</span>
+                              <span class="chooseOneGroup grid-row inputgroup">
+                                <span class="grid-mobile-col mobile-col-full">
+                                  <input type="radio"  (click)="changePropertyTenure($event)" id="Tenure1" value="Freehold" class="chooseOne" data-qa="is payment first day of the month" required="" name="Tenure">
+                                  <label for="Tenure1" data-qa="is payment first day of the month yes">Freehold</label>
+                                </span>
+                                <span class="grid-mobile-col mobile-col-full">
+                                  <input type="radio" (click)="changePropertyTenure($event)" id="Tenure2" class="chooseOne" value="Leasehold" data-qa="is payment first day of the month" required="" name="Tenure">
+                                  <label for="Tenure2" data-qa="is payment first day of the month no">Leasehold</label>
+                                </span>
+                                <span class="grid-mobile-col mobile-col-full">
+                                    <input type="radio"  (click)="changePropertyTenure($event)" id="Tenure3" value="Commonhold" class="chooseOne" data-qa="is payment first day of the month" required="" name="Tenure">
+                                    <label for="Tenure3" data-qa="is payment first day of the month yes">Commonhold</label>
+                                  </span>
+                                  <span class="grid-mobile-col mobile-col-full">
+                                    <input type="radio"(click)="changePropertyTenure($event)" id="Tenure4" class="chooseOne" value="Absolute title/feudal" data-qa="is payment first day of the month" required="" name="Tenure">
+                                    <label for="Tenure4" data-qa="is payment first day of the month no">Absolute title/feudal</label>
+                                  </span>
+                              </span>
+                            </fieldset>
+                          </div>
+                        <br>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="formbody">
+                        <ul class="actions trailing field-bottom-none">
+                          <li class="tail mobileFull">
+                            <button id="nextButton" type="submit" formnovalidate="formnovalidate" class="mat-raised-button"  (click)="onFormSubmit()">Continue</button>
+                          </li>
+                          <li class="leading mobileFull">
+                            <button type="submit" formnovalidate="formnovalidate" class="secondary" data-qa="save and come back later" data-confirm-dialog="#saveAndComeBackLaterModal">Save and come back later</button>
+                          </li>
+                        </ul>
+                        <ul class="actions trailing field-top-none">
+                          <li class="tail">
+                            <button type="submit" formnovalidate="formnovalidate" class="inlineBtn">Cancel</button>
+                          </li>
+                          <li class="leading">
+                            <button type="submit" formnovalidate="formnovalidate" class="inlineBtn">Back</button>
+                          </li>
+                        </ul>
+                      </div>
+                  <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front" tabindex="-1" role="dialog" aria-describedby="ui-id-1" aria-labelledby="ui-id-2" style="display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div class="santander-ui-dialog-wrapper ui-dialog-content ui-widget-content" id="ui-id-1"><div id="saveAndComeBackLaterModal" class="santander-dialog">
+              <h1>Are you sure you want to save and exit your application?</h1>
+              <p>If you choose to save and exit, please make a note of your application reference number:
+                <strong data-qa="application reference number" class="emphasized">OLA0088226029</strong>
+              </p>
+              <ul class="actions trailing field-bottom-none">
+                <li class="tail mobileFull">
+                  <button id="saveAndExitButton" name="button" type="submit" class="primary continueButton" data-qa="save and exit modal">Save and exit application</button>
+                </li>
+                <li class="leading mobileFull">
+                  <button name="button" type="button" class="secondary cancelButton" data-qa="cancel modal">Continue application</button>
+                </li>
+              </ul>
+            </div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front" tabindex="-1" role="dialog" aria-describedby="ui-id-3" aria-labelledby="ui-id-4" style="display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-4" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div class="santander-ui-dialog-wrapper ui-dialog-content ui-widget-content" id="ui-id-3"><div id="cancelModal" class="santander-dialog">
+              <h1>Are you sure you want to cancel your application?</h1>
+              <p>Please note once you cancel your application we will delete all the information you have provided.</p>
+              <ul class="actions trailing field-bottom-none">
+                <li class="leading mobileFull">
+                  <button name="button" type="button" class="secondary cancelButton" data-qa="no modal">No, return to my application</button>
+                </li>
+                <li class="tail mobileFull">
+                  <button name="button" type="submit" id="cancelAndExitButton" class="primary continueButton" data-qa="yes modal">Yes, cancel my application</button>
+                </li>
+              </ul>
+            </div></div></div>
+            <div class="importantMessageform">
+                <div class="formbody">
+                  <h6><b>Important information</b></h6>
+                  <div class="message">
+                      <br>
+                    <p>
+                      <strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE </strong>
+                    </p>
+                    <p>All applications are subject to status and our lending criteria. This means that the amount we will lend you will depend on your individual circumstances, the type of property and the amount you borrow. For example, we may require a higher deposit
+                      if you are buying a flat or a new build property.</p>
+                  </div>
+                </div>
+              </div>
+                </div>
+
+
+</div>
+</div>

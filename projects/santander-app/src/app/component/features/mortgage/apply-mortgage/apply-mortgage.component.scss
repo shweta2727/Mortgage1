@@ -1,0 +1,54 @@
+.card .cardHeader {
+    background-color: #1bb3bc;
+    color: #FFF;
+    padding: 7px 16px;
+    margin: 0px -16px;
+    line-height: 40px;
+    font-size: 24px;
+}
+.card.bordered {
+    border: 1px solid #1bb3bc;
+}
+.card {
+    padding: 0 16px 0 16px;
+}
+.center {
+    text-align: center;
+}
+
+.iconLaptopLogo {
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    background-image: url('https://apply.santander.co.uk/mortgages/styles/2.3.48/images/formLogos/ico_laptop.svg'),none;
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
+    text-indent: -9000em;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+.iconHeadsetLogo, .iconLaptopLogo {
+    background-size: 100% auto;
+    margin-top: 32px;
+    background-position: center;
+    overflow: visible;
+}
+.field-bottom-double {
+    margin-bottom: 32px;
+    font-size:18px;
+    font-weight: bold;
+    font-family: OpensansRegular, Arial, sans-serif;
+}
+.iconHeadsetLogo {
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    background-image: url('https://apply.santander.co.uk/mortgages/styles/2.3.48/images/formLogos/ico_headset.svg'),none;
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
+    text-indent: -9000em;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}

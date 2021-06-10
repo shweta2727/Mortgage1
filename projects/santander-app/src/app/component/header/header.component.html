@@ -1,0 +1,21 @@
+<header class="header">
+    <div class="primary-navigation--container">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="pull-right">
+                           <a routerLink='mortage'> <img id="headerbanner" class="santander" src="../../..//assets/logo.svg" alt="Home">
+                           </a>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <span *ngIf="!this.authentication.getAuthenticatedUser()">Your details are Secure!</span>
+                        <span *ngIf="this.authentication.getAuthenticatedUser()" >Welcome, {{this.authentication.getAuthenticatedUser() | uppercase}}</span>
+                        <button (click)="logout()" *ngIf='this.authentication.getAuthenticatedUser()' class="btn btn-light logout" style="margin-left: 11px;">Logout</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

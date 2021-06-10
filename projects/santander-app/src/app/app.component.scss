@@ -1,0 +1,23 @@
+#bodyContent {
+    padding: 0 16px;
+    background-color: #FFF;
+    border-left: 1px solid #C2C2C2;
+    border-right: 1px solid #C2C2C2;
+    display: table;
+    table-layout: fixed;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: auto;
+    margin: 0 auto;
+    min-height: 500px;
+}
+
+.loader-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.8;
+    z-index: 99;
+  }

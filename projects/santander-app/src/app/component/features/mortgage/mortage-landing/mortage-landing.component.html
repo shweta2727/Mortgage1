@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidemenu-container">
+    <mat-sidenav class="sidenav" mode="side" opened >
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('applyFlag')">How to apply</mat-nav-list>
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('optionsFlag')">Mortgage options</mat-nav-list>
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('confirmFlag')">Confirm mortgage</mat-nav-list>
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('propertyFlag')">Property details</mat-nav-list>
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('valuationFlag')">Valuation</mat-nav-list>
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('occuppantFlag')">OtherOccupants/Solicitor</mat-nav-list>
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('paymentFlag')">Payment details</mat-nav-list>
+        <mat-nav-list class="mat-nav-list" (click)="optionClicked('reviewSubmitFlag')">Review and submit</mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="content">
+            <ng-container>
+                <app-user-activity></app-user-activity>
+             <span *ngIf="optionsFlag">  <app-mortage-options></app-mortage-options></span>
+             <span *ngIf="applyFlag"><app-apply-mortgage></app-apply-mortgage></span>
+             <span *ngIf="confirmFlag"><app-confirm-mortgage></app-confirm-mortgage></span>
+             <span *ngIf="propertyFlag"><app-property-details></app-property-details></span>
+             <span *ngIf="valuationFlag"><app-valuation></app-valuation></span>
+             <span *ngIf="occuppantFlag"><app-other-occupants></app-other-occupants></span>
+             <span *ngIf="paymentFlag"><app-payment-details  (newItemEvent)="optionClicked($event)" ></app-payment-details></span>
+             <span *ngIf="reviewSubmitFlag"><app-review-submit></app-review-submit></span>
+            </ng-container>
+        </div>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>

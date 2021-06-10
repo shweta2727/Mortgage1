@@ -1,0 +1,96 @@
+<div class="container container-fluid">
+
+  <div class="grid-row no-gutter">
+    <div class="grid-col col-12-of-12 ">
+      <div class="header withSubHeadline">
+        <br>
+        <br>
+        <h3 data-qa="loan details header">How to apply for your mortgage</h3>
+        <br>
+        <p>You can continue and complete your mortgage application by choosing from one of the options below.</p>
+        <br>
+      </div>
+
+      <div class="grid-row rowCenter field-right-double field-mobile-right-none">
+        <div class="col-9-of-10">
+
+          <div class="card bordered preferredMethodToApply field-top-double">
+            <h2 class="cardHeader">Recommended for first time buyers</h2>
+            <div class="applyOnline applySection center" data-qa="advised">
+              <span class="iconHeadsetLogo"></span>
+              <h2 class="field-bottom-double">Continue your application with advice</h2>
+              <h3 class="field-bottom-double">One of our Mortgage Advisers will call you to confirm details and book in
+                your telephone mortgage appointment.</h3>
+              <form method="POST" action="/mortgages/advisedservice" autocomplete="off"><input type="hidden"
+                  name="_csrf" value="">
+                <button type="submit" data-confirm-dialog="#advised-service-modal"
+                  class="mat-raised-button  field-bottom-double" style="margin-top: 26px;
+              margin-bottom: 20px;" data-qa="continue by phone">Continue by phone</button>
+                <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front" tabindex="-1" role="dialog"
+                  aria-describedby="ui-id-1" aria-labelledby="ui-id-2" style="display: none;">
+                  <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2"
+                      class="ui-dialog-title">&nbsp;</span><button type="button"
+                      class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close"
+                      role="button" title="Close"><span
+                        class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span
+                        class="ui-button-text">Close</span></button></div>
+                  <div class="santander-ui-dialog-wrapper ui-dialog-content ui-widget-content" id="ui-id-1">
+                    <div id="advised-service-modal" class="santander-dialog" data-qa="advised service popup">
+                      <h1>Are you sure you'd like to continue with a phone advisor?</h1>
+                      <strong data-qa="information configurable text">If you continue by phone, you will not be offered
+                        our online exclusive products as these are only available if you complete your full application
+                        online.</strong>
+                      <p>If you chose to continue by phone your online application will be finished and you will not be
+                        able to return to it.</p>
+                      <ul class="actions trailing field-bottom-none">
+                        <li class="tail mobileFull">
+                          <button type="button" id="nextButton" class="mat-raised-button" style="margin-top: 26px;
+                margin-bottom: 20px;" data-qa="continue by phone popup button">Continue by phone</button>
+                        </li>
+                        <li class="leading mobileFull">
+                          <button type="button" id="cancelButton" class="secondary cancelButton"
+                            data-qa="cancelButton">Cancel</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="applyOnline applySection center" data-qa="online">
+            <span class="iconLaptopLogo"></span>
+            <h2 class="field-bottom-double">Continue your application without advice</h2>
+            <h3 class="field-bottom-double">Choose your product and complete your application.</h3>
+
+            <form method="POST" action="" autocomplete="off"><input type="hidden" name="_csrf" value="">
+              <button type="submit" class="mat-raised-button field-bottom-double" style="margin-top: 26px;"
+                data-qa="continue online">Continue online</button>
+            </form>
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+      <div class="importantMessageform">
+        <div class="formbody">
+          <h6><b>Important information</b></h6>
+          <div class="message">
+            <br>
+            <p>
+              <strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE </strong>
+            </p>
+            <p>All applications are subject to status and our lending criteria. This means that the amount we will lend
+              you will depend on your individual circumstances, the type of property and the amount you borrow. For
+              example, we may require a higher deposit
+              if you are buying a flat or a new build property.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>

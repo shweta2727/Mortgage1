@@ -1,0 +1,127 @@
+<div class="container container-fluid" id ="bodyContent">
+
+    <br>
+    <h3>Get a decision in principle and then apply online </h3>
+    <br>
+    <article>
+        <h6>Before you start we want to let you know: </h6>
+        <ul class="simple">
+            <li>we only offer Santander mortgages</li>
+            <li>there’s no fee for using this service but product or valuation fees may apply. Details of any fees are
+                provided when you choose your product</li>
+        </ul>
+        <h6>Applying online without advice </h6>
+        <p class="field-bottom-none">
+            By applying online you won’t receive any advice from us.&nbsp;If you’d like advice, you’ll have the option
+            to choose it after you’ve completed your online decision in principle.
+        </p>
+
+    </article>
+    <hr>
+    <article>
+        <h3>Get started</h3>
+        <p>Please fill in the details below to include anyone who needs to be on the decision in principle and mortgage
+            application. You’ll also be able to save your progress and continue with your application as and when it
+            suits you.</p>
+    </article>
+    <h5>Applicant information</h5>
+    <p>(All the fields marked with <em>*</em> are required)</p>
+    <div class="form">
+
+        <div *ngIf="registrationSuccess" class="row col-sm-12" style="margin-bottom: 20px;">
+            <div class="alert alert-success" id='upper-side'>
+                <!-- <img width= '145px' src="..//..//..//assets/success.svg"/>
+               -->
+                <h5>Registered Successfully</h5>
+                <span>Your user id is {{userID}}</span>
+             </div>
+
+        </div>
+        <div *ngIf="!registrationSuccess" class="row col-sm-12" style="margin-bottom: 20px;">
+            <div class="col-sm-6" style="    margin-top: 17px;
+            ">
+                <form (ngSubmit)="!Form.invalid && registerUser()" #Form="ngForm" class="my-form">
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width" appearance="standard">
+
+                            <input placeholder="First Name" name="FirstName" [(ngModel)]="data.firstName" matInput required>
+                            <mat-error></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width" appearance="standard">
+
+                            <input placeholder="Last Name" name="LastName" [(ngModel)]="data.lastName" matInput required>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width" appearance="standard">
+
+                            <input type="date" name="dateOfBirth" [(ngModel)]="data.dateOfBirth" placeholder="Date Of birth" matInput required>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width" appearance="standard">
+
+                            <input type="email" name ="email" [(ngModel)]="data.email" placeholder="Email" matInput required>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width" appearance="standard">
+
+                            <input type="password" name="password" [(ngModel)]="data.password" placeholder="Password" matInput required>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width" appearance="standard">
+
+                            <input type="password" name="confirmpassword" [(ngModel)]="confirmpassword" placeholder="Confirm Password" matInput required>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width" appearance="standard">
+
+                            <input name="forgetPasswordQ" [(ngModel)]="data.forgetPasswordQ" placeholder="Select the Question" matInput required>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <mat-form-field class="example-full-width"appearance="standard">
+
+                            <input name="forgetPasswordA" [(ngModel)]="data.forgetPasswordA" placeholder="Answer" matInput required>
+
+                        </mat-form-field>
+                    </div>
+                    <button type="submit" class='mat-raised-button register' style="margin-top: 26px;
+                    margin-bottom: 20px;" color="primary">Register</button>
+
+                </form>
+            </div>
+            <div  class="col-sm-6">
+                <div class="informationMessage">
+                    <p>By providing your email address and / or phone number you’re agreeing we can send you any documents and updates about your application by email or phone. This may include contacting you to see if we can help you in completing your application. Your details won’t be used for marketing purposes without your permission.</p>
+                  </div>
+                </div>
+
+            </div>
+
+
+    </div>
+
+    <span style="margin-top: 10px;">Already have an account?</span><a routerLink="/login">Login</a>
+    <div class="formbody">
+        <h5>Important information</h5>
+        <div class="informationMessage message">
+          <p>
+            <strong>YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE </strong>
+          </p>
+          <p>All applications are subject to status and our lending criteria. This means that the amount we will lend you will depend on your individual circumstances, the type of property and the amount you borrow. For example, we may require a higher deposit
+            if you are buying a flat or a new build property.</p>
+        </div>
+      </div>
+</div>
